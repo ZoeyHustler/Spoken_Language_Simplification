@@ -82,7 +82,29 @@ def TextFileToSentenceList(filePath):
         file_contents = file.read()
     sentenceList = FormatChange.ExtractSentences(file_contents)
     return sentenceList
-    
+def printEval(textEval):
+    assert 1==1
+    semantic = textEval[0]
+    for i, sentence in enumerate(semantic):
+        for key,value in sentence.items():
+            print(f"sentence {i}, {key}: {value}")
+    oldTextComp = textEval[1]
+    print(f"old Text, Flesch-Reading-Ease-Score: {oldTextComp['FRES']}")
+    print(f"old Text, Gunning Fog Index: {oldTextComp['GFI']}")
+    newTextComp = textEval[2]
+    print(f"new Text, Flesch-Reading-Ease-Score: {newTextComp['FRES']}")
+    print(f"new Text, Gunning Fog Index: {newTextComp['GFI']}")
+    oldSentComp = textEval[3]
+    for tup in oldSentComp:
+        sentence, index = tup
+        for key,value in sentence.items():
+            print(f"old sentence {index}, {key}: {value}")
+    newSentComp = textEval[4]
+    for tup in newSentComp:
+        sentence, index = tup
+        for key,value in sentence.items():
+            print(f"new sentence {index}, {key}: {value}")
+    assert 1==1  
 #ask user if they want audio or text file
 isAudioInput = input("Enter 1 for audio, Enter 0 for text: ")
 isAudio = (isAudioInput == "1")
@@ -107,13 +129,15 @@ if os.path.exists(filePath):
     simpleTextListEnum = TextSimplification(enumeratedSentenceList)
     simpleTextList = FormatChange.ExtractSentenceFrom4Tuple(simpleTextListEnum)
     #evaluate the text for help purposes
-    Evaluation.FullEvaluation(sentenceList, simpleTextListEnum)
+    textEval = Evaluation.FullEvaluation(sentenceList, simpleTextListEnum)
     #need to do something with this evaluation
     simpleText = FormatChange.StrList_To_String(simpleTextList)
     TextToSpeechSave(simpleText, outputFileName)
     TextSave(simpleText, outputFileName)
-    SpeakSimplifiedText(simpleText)
+    #SpeakSimplifiedText(simpleText)
+    printEval(textEval)    
     print(simpleText)
 else:
     print("Input file does not exist")
 
+    

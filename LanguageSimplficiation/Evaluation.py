@@ -286,7 +286,7 @@ def Calc_Semantic_Presevation_Text(oldTextWithIndex, newTextWithIndex):
     for old, new in zip(removedIndexOld,reWorkedSentencesNew):
         semPrevScores = Calculate_Semantic_Preservation_Evaluations(old,new)
         semPrevScoreList.append(semPrevScores)
-    assert 1==1
+    return semPrevScoreList
 def Calculate_Semantic_Preservation_Evaluations(oldSentence, newSentence):
     #each sentence is a string
     #turn into list for cosine similarity -> changing this to using a spacy tokenizer instead as they are better

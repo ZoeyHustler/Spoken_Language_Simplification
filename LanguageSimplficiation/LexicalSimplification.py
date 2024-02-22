@@ -6,6 +6,7 @@ from nltk.corpus import wordnet
 from pattern import en #this is stupid and crashes
 from textblob import Word as w
 from itertools import product
+import sys, os
 #from en import parse, tenses, singularize
 def Lexicon_Simplify_Main(text):
     #text = list of enumerated Sentences (sentence, ,i)
@@ -120,7 +121,7 @@ def WordReplacementStrategyAll(spacySentence, indexOfComplexWord):
 
     #Get WordNet options
     wordNetList = WordNetReplacementLemmas(spacySentence[indexOfComplexWord].text)
-    print(spacySentence[indexOfComplexWord].text)
+    #print(spacySentence[indexOfComplexWord].text)
     #backup if Wordnet fails -> store original word again
     if wordNetList == []:
         wordNetList = [spacySentence[indexOfComplexWord].text]
@@ -221,7 +222,6 @@ def BertReplacementsJustWord(sentence, indexOfComplexWord):
     #| Process: Finds list of possible simplifications for the complex word            |
     #| Output: Returns list of possible words to replace the complex word with         |
     #+---------------------------------------------------------------------------------+
-
     #mask the sentence (replace index with MASK then add original sentence on the end)
     maskedSentence = FormatChange.StrList_To_String(sentence[:indexOfComplexWord] + ["[MASK]"] + sentence[indexOfComplexWord+1:] + sentence)
     

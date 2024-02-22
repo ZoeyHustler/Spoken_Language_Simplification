@@ -34,8 +34,10 @@ def DEPSYM_Simplify(sentence):
     #2) Get sentence as a list of tokens in case of failure
     wordList  = [token.text for token in spaciedSentence]
     #3) Assume we can only simplify if the root is a verb
+    """
     for token in spaciedSentence:
         print(f"{token.text} --> {token.dep_} --> {token.head.text}")
+    """
     if Is_Root_Verb(spaciedSentence) is False:
         return (wordList, [])
     
