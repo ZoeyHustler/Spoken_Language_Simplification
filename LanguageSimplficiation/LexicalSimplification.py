@@ -10,7 +10,7 @@ from itertools import product
 import sys, os
 #from en import parse, tenses, singularize
 def Lexicon_Simplify_Main(text):
-    #text = list of enumerated Sentences (sentence, ,i)
+    #text = list of enumerated Sentences (sentence, ,i) 
     methodDict = Lexicon_Simplify_Main_All_Methods(text)
     return methodDict["Overlap_Zipf_20"]
     newText = []
