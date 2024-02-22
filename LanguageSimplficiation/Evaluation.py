@@ -1,15 +1,11 @@
-from ast import Num
 import math
-import re
 import Parsers
 from nltk.corpus import cmudict #cmudict for counting syllables in pronounciation
 import numpy
-from scipy.spatial import distance #calculating cosine distance
 from rouge import Rouge
 import time #just for testing purposes
 import nltk
 import spacy #For gunning Fox Index to find lemmas
-from nltk.stem import WordNetLemmatizer #Find lemmatizations of words for Gunning_Fox_Index
 import FormatChange
 from wordfreq import zipf_frequency
 gloveWordVectorsFile = "glove.6B.200d.txt" #for word2VecReading from a file but I've already got this

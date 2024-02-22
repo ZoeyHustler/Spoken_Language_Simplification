@@ -1,5 +1,3 @@
-from os import remove
-from re import A, T
 import Parsers
 import FormatChange
 import spacy

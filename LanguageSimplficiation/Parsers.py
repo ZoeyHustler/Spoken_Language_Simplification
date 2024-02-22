@@ -1,5 +1,4 @@
 import spacy
-
 nlp = spacy.load("en_core_web_sm")
 def Get_NLP_Info(sentence):
     #+-------------------------------------------------------------+

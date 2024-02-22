@@ -1,15 +1,10 @@
-import re
-import math
 import os
+import math
 from nltk.corpus import wordnet as wn #wordNet for synonyms
-from nltk.tokenize import word_tokenize
 from transformers import pipeline #used for BERT
 import spacy #dependency parser
-from spacy import displacy #visualise dependency tree
-import stanfordnlp
 from transformers.data.data_collator import numpy_default_data_collator #Not using currently
 import pyttsx3
-from transformers.models.albert.modeling_albert import ALBERT_INPUTS_DOCSTRING
 #import modules that I have created to split up my code better
 import LexicalSimplification
 import SyntacticSimplification

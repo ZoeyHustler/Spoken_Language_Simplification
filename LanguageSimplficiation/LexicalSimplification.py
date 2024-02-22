@@ -3,8 +3,9 @@ import Evaluation
 import Parsers
 import FormatChange
 from nltk.corpus import wordnet
-from pattern import en #this is stupid and crashes
+"""
 from textblob import Word as w
+"""
 from itertools import product
 import sys, os
 #from en import parse, tenses, singularize
